@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mi primera pagina web </title>
+    <script>
+        var imagenOriginalSrc = document.getElementById("miImagen").src;
+        function cambiarColor() {
+
+            document.body.style.backgroundColor = "red";
+        }
+        function cambiarTexto() {
+            document.getElementById("textoP").textContent = "Se cambio el texto jaja";
+        }
+
+
+        function cambiarImagen(nuevaImagen) {
+            document.getElementById("miImagen").src = nuevaImagen;
+        }
+        function restaurarImagen() {
+            document.getElementById("miImagen").src = "Platano jaja.jpg";
+        }
+        function ocultarMensaje() {
+            document.getElementById("mensaje").style.display = "none";
+        }
+        function escribirTexto() {
+            var texto = "<h1>Este texto no lo escribió Jose Leonardo Martinez Gomez , lo escribió JavaScript</h1>";
+            document.getElementById("miDiv").innerHTML = texto;
+        }
+    </script>
+
+</head>
+<style>
+    body {
+        background-color: rgb(64, 145, 116);
+    }
+
+    p {
+        color: aliceblue;
+
+    }
+
+    h1 {
+        color: black;
+        font-family: 'Roboto', sans-serif;
+
+    }
+
+    ul {
+        color: aliceblue;
+
+    }
+
+    .botonC {
+        background-color: #382525;
+        margin-left: 28%;
+        border-radius: 15%;
+        font-size: 120%;
+    }
+
+    .botonT {
+        background-color: #382525;
+        border-radius: 15%;
+        font-size: 120%;
+    }
+
+    .botonI1 {
+        background-color: #382525;
+        border-radius: 15%;
+        font-size: 120%;
+        position: relative;
+        right: 49%;
+    }
+
+
+    .botonI2 {
+        background-color: #382525;
+        border-radius: 15%;
+        font-size: 120%;
+        position: relative;
+        right: 49%;
+    }
+
+    .mensaje {
+        position: relative;
+
+
+    }
+    .seccion{
+        position: relative;
+    }
+</style>
+<h1>Mi primera pagina web</h1>
+
+<body>
+    <p id="textoP">Hola! Mi nombre es <strong>Jose Leonardo Martinez Gomez</strong><br>
+        Carrera: Desarrollo de Software Multiplataforma <br> Grupo: B <br>
+        Correo institucional: <strong>20223tn067@utez.edu.mx</strong><br>
+        Matricula: 20223tn067<br>
+        Estudios: Capacitacion en Contabilidad<br>
+        Pasatiempos:<br>
+    </p>
+    <ul>
+        <li>Hacer deporte</li>
+        <li>Leer</li>
+        <li>Escribir</li>
+        <li>Escuchar musica</li>
+        <li>Tocar guitarra</li>
+    </ul>
+
+
+    <img id="miImagen" src="Platano jaja.jpg" alt="Platano" width="300">
+    <button class="botonC" onclick="cambiarColor()">Cambiar Color</button>
+    <button class="botonT" onclick="cambiarTexto()">Cambiar Texto</button>
+    <button class="botonI2" onclick="cambiarImagen('Pato.png')">Cambiar Imagen</button>
+    <button class="botonI1" onclick="restaurarImagen()">Restaurar Imagen</button>
+    <h2 class="mensaje" id="mensaje">Holi mundo</h2>
+    <button onclick="ocultarMensaje()">Ocultar Mensaje</button>
+    <section class="seccion">
+        <div id="miDiv"></div>
+        <button onclick="escribirTexto()">Escribir Texto</button>
+    </section>
+    
+</body>
+
+</html>
