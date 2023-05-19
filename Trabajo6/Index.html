@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #current-image {
+            width: 1000px;
+          
+            height: 500px;
+          
+            object-fit: cover;
+          
+        }
+
+        #image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: rgb(176, 170, 231);
+            padding-top: 10%;
+        }
+
+        .botones {
+            text-align: center;
+            
+        }
+        #previous-button,
+      #next-button {
+        font-size: 25px; 
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        padding: 10px 20px; 
+        margin: 5px;
+        background-color: rgb(0, 0, 0);
+        color: rgb(165, 165, 253);
+        border-radius: 10%;
+        transition: background-color 0.3s ease-in-out;
+      }
+      #previous-button:hover,
+      #next-button:hover {
+        background-color: #ffffff; 
+      }
+      #image-container{
+        margin-top: 5%;
+        padding: 2%;
+      }
+    </style>
+</head>
+
+<body style="background-color: rgb(114, 162, 250);">
+    <div id="image-container">
+        <img id="current-image" src="nbAzul.jpg" alt="Imagen">
+    </div>
+    <div class="botones">
+        <button id="previous-button">Anterior</button>
+        <button id="next-button">Siguiente</button>
+    </div>
+
+    <script>
+        var imageFolder = "imagenes/"; 
+
+        var imageNames = [
+            "nbAzul.jpg",
+            "nbCafe.jpg",
+            "nbGris.jpg",
+            "nbNegro.jpg",
+            "nbRojo.jpg"
+        ];
+
+        var currentImageIndex = 0;
+        var currentImageElement = document.getElementById("current-image");
+        var previousButton = document.getElementById("previous-button");
+        var nextButton = document.getElementById("next-button");
+
+        // Función para actualizar la imagen actual
+        function updateCurrentImage() {
+            var imageUrl = imageFolder + imageNames[currentImageIndex];
+            currentImageElement.src = imageUrl;
+        }
+
+        // Función para mostrar la imagen siguiente
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % imageNames.length;
+            updateCurrentImage();
+        }
+
+        // Función para mostrar la imagen anterior
+        function showPreviousImage() {
+            currentImageIndex = (currentImageIndex - 1 + imageNames.length) % imageNames.length;
+            updateCurrentImage();
+        }
+
+       
+        nextButton.onclick = showNextImage;
+        previousButton.onclick = showPreviousImage;
+
+        // Mostrar la imagen actual al cargar la página
+        updateCurrentImage();
+    </script>
+</body>
+
+</html>
