@@ -1,0 +1,26 @@
+.contForm{
+    text-align: center;
+    
+}
+body{
+    background-color: darkgrey
+}
+.forms{
+    border-radius: 30%;
+}
+
+input[type="text"]{
+    border-radius: 8%;
+    background-color: rgb(118, 172, 174);
+    border-color:rgb(0, 0, 0);
+    
+}
+label{
+    font-size: 120%;
+    color:rgb(255, 255, 255);
+}
+
+.contenedor1{
+    text-align: center;
+    background-color: cornflowerblue;
+}

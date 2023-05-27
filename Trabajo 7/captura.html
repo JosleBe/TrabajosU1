@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="estilos.css" />
+
+    <title>Registro de datos</title>
+</head>
+
+<body>
+    <div class="contenedor1">
+        <h1 style="color: aliceblue;">Registro de datos</h1>
+        <h1 style="display: inline;">Nombre:</h1>
+        <h1 id="nombres" style="display: inline;"></h1><br>
+        <h2 style="display: inline;">Apellidos:</h2>
+        <h2 id="apellidos" style="display: inline;"></h2><br>
+        <p style="display: inline;">Correo:</p><a href="mailto:correo" id="correos" style="display: inline;"></a><br>
+        <p style="display: inline;">Edad:</p>
+        <p id="fechaNac" style="display: inline;"></p> <br>
+        <p style="display: inline;">Teléfono:</p><a href="tel:telefono" id="tel" style="display: inline;"></a><br>
+        <p style="display: inline;">Usuario:</p>
+        <p id="usr" style="display: inline;"></p><br>
+        <p style="display: inline;">Contraseña:</p>
+        <p id="contr" style="display: inline;"></p><br>
+   
+    </div>
+
+
+    <script>
+        getParameter = (Key) => {
+            address = window.location.search
+            parameterList = new URLSearchParams(address);
+            return parameterList.get(Key);
+        }
+        console.log(getParameter("nombre"));
+        var nombre = getParameter("nombre");
+        if (nombre != null) {
+            document.getElementById("nombres").innerHTML = nombre;
+
+        }
+        console.log(getParameter("apellido"));
+        var apellido = getParameter("apellido");
+        if (nombre != null) {
+            document.getElementById("apellidos").innerHTML = apellido;
+
+        }
+        console.log(getParameter("correo"));
+        var correo = getParameter("correo");
+        if (nombre != null) {
+            document.getElementById("correos").innerHTML = correo;
+
+        }
+        console.log(getParameter("fechaNacimiento"));
+        var fecha = getParameter("fechaNacimiento");
+        if (nombre != null) {
+            document.getElementById("fechaNac").innerHTML = fecha;
+
+        }
+        console.log(getParameter("telefono"));
+        var telefonos = getParameter("telefono");
+        if (nombre != null) {
+            document.getElementById("tel").innerHTML = telefonos;
+
+        }
+        console.log(getParameter("usuarios"));
+        var usua = getParameter("usuarios");
+        if (nombre != null) {
+            document.getElementById("usr").innerHTML = usua;
+
+        }
+        console.log(getParameter("contraseñas"));
+        var contra = getParameter("contraseñas");
+        if (contra != null && contra > 6) {
+            document.getElementById("contr").innerHTML = contra;
+        } else {
+            alert("La contraseña es muy corta");
+            document.getElementById("contr").innerHTML = contra;
+
+        }
+
+        var contra2 = document.getElementById("repContraseña");
+        if (contra != contra2) {
+            alert("Las contraseñas no son iguales");
+            document.getElementById("repContr").innerHTML = contra2;
+        }else{
+            document.getElementById("repContr").innerHTML = contra2;
+        }
+
+
+        function obtenerEdad() {
+            var fechaInput = getParameter("fechaNacimiento");
+            var partes = fechaInput.split('-');
+            var año = partes[0];
+            var edad = 2023 - año;
+            return edad;
+        }
+
+        var fecha = getParameter("fechaNacimiento");
+        if (fecha != null) {
+            document.getElementById("fechaNac").innerHTML = obtenerEdad();
+        }
+
+
+    </script>
+</body>
+
+</html>
